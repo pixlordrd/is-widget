@@ -227,7 +227,7 @@ struct ContentView: View {
 
     private func finishTask(task: RunningTaskInfo) {
         let endTime = Date()
-        guard let calendar = manager.calendar(for: task.calendarIdentifier),
+        guard let calendar = manager.selectedCalendar ?? manager.calendars.first,
               !task.text.isEmpty else { return }
         do {
             try manager.createEvent(

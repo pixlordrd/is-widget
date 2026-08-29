@@ -68,7 +68,7 @@ struct iOSSettingsView: View {
                 if manager.selectedCalendar?.calendarIdentifier == cal.calendarIdentifier {
                     Image(systemName: "checkmark")
                         .fontWeight(.semibold)
-                        .foregroundStyle(.accentColor)
+                        .foregroundStyle(.tint)
                 }
             }
         }

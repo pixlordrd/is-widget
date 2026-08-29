@@ -2,7 +2,7 @@ import SwiftUI
 import AppKit
 
 @main
-struct is_widgetApp: App {
+struct idinApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
@@ -66,10 +66,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     private func makeAlert() -> NSAlert {
         let alert = NSAlert()
-        alert.messageText = "İş Takip'i Kapat"
-        alert.informativeText = "Uygulamayı kapatmak istediğinizden emin misiniz?"
-        alert.addButton(withTitle: "Kapat")
-        alert.addButton(withTitle: "İptal")
+        alert.messageText = "Quit IDIN"
+        alert.informativeText = "Are you sure you want to quit?"
+        alert.addButton(withTitle: "Quit")
+        alert.addButton(withTitle: "Cancel")
         alert.alertStyle = .warning
         return alert
     }

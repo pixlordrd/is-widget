@@ -177,7 +177,7 @@ struct ContentView: View {
                 .padding(.vertical, 2)
         }
         .buttonStyle(.borderedProminent)
-        .tint(.green)
+        .tint(settings.theme.color)
         .disabled(taskText.trimmingCharacters(in: .whitespaces).isEmpty)
         .keyboardShortcut(.return, modifiers: .command)
     }
@@ -225,9 +225,7 @@ struct ContentView: View {
 
     private func finishTask() {
         let endTime = Date()
-        let calendarId = sync.runningTask?.calendarIdentifier ?? manager.selectedCalendar?.calendarIdentifier ?? ""
-        let calendar = manager.calendar(for: calendarId)
-        guard let calendar,
+        guard let calendar = manager.selectedCalendar ?? manager.calendars.first,
               !taskText.trimmingCharacters(in: .whitespaces).isEmpty else { return }
 
         do {

@@ -9,8 +9,8 @@ struct RunningTaskInfo: Codable, Equatable {
 /// Real-time task sync between macOS and iOS via iCloud KV Store.
 @Observable
 class SyncManager {
-    private static let taskKey = "iswidget_runningTask"
-    private static let lastTaskKey = "iswidget_lastTaskText"
+    private static let taskKey = "idin_runningTask"
+    private static let lastTaskKey = "idin_lastTaskText"
     private let store = NSUbiquitousKeyValueStore.default
 
     var runningTask: RunningTaskInfo?
