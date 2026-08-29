@@ -1,0 +1,11 @@
+# Xcode user data
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/swiftpm/
+
+# Build output
+build/
+DerivedData/
+
+# OS X
+.DS_Store
