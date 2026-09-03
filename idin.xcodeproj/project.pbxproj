@@ -476,7 +476,7 @@
 				INFOPLIST_FILE = "is-widget-iOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = IDIN;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "İş takip uygulaması takvim erişimine ihtiyaç duyar.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN needs full access to your Calendar to display available calendars and create activity records.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -518,7 +518,7 @@
 				INFOPLIST_FILE = "is-widget-iOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = IDIN;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "İş takip uygulaması takvim erişimine ihtiyaç duyar.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN needs full access to your Calendar to display available calendars and create activity records.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -789,8 +789,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = IDIN;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "İş takip uygulaması, anlık iş kayıtları oluşturmak için takvim erişimine ihtiyaç duyar.";
-				INFOPLIST_KEY_NSCalendarsWriteOnlyAccessUsageDescription = "";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN needs full access to your Calendar to display available calendars and create activity records.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -842,8 +841,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = IDIN;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "İş takip uygulaması, anlık iş kayıtları oluşturmak için takvim erişimine ihtiyaç duyar.";
-				INFOPLIST_KEY_NSCalendarsWriteOnlyAccessUsageDescription = "";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN needs full access to your Calendar to display available calendars and create activity records.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
