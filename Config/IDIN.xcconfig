@@ -14,4 +14,4 @@ IDIN_KVS_ID = $(TeamIdentifierPrefix)PIXLORD.idin-iOS
 
 // App Store identity — do not change these if V2 must ship as an update of the live app.
 PRODUCT_BUNDLE_IDENTIFIER = PIXLORD.idin-iOS
-MARKETING_VERSION = 2.0
+MARKETING_VERSION = 2.1
