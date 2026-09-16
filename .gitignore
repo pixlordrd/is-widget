@@ -9,3 +9,7 @@ DerivedData/
 
 # OS X
 .DS_Store
+
+# SwiftPM (local packages)
+.build/
+.swiftpm/

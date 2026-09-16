@@ -1,37 +1,94 @@
 import SwiftUI
 import EventKit
+import IDINCore
 
-enum AppTheme: String, CaseIterable, Identifiable {
-    case indigo = "Indigo"
-    case ocean = "Ocean"
-    case sunset = "Sunset"
-
-    var id: String { rawValue }
-
-    var color: Color {
-        switch self {
-        case .indigo: return .indigo
-        case .ocean: return Color(hue: 0.58, saturation: 0.75, brightness: 0.88)
-        case .sunset: return Color(hue: 0.06, saturation: 0.82, brightness: 0.95)
-        }
-    }
-}
-
-struct iOSSettingsView: View {
+struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
-    let manager: CalendarManager
-    @Binding var themeName: String
-    @State private var showShareSheet = false
+    let calendarManager: CalendarManager
+    @Binding var selectedCalendarID: String
+    @AppStorage("iOSTheme") private var themeName = AppTheme.system.rawValue
+    @Bindable private var reminders = ReminderPreferences.shared
+
+    private var theme: AppTheme {
+        AppTheme(rawValue: themeName) ?? .system
+    }
 
     var body: some View {
         NavigationStack {
             Form {
-                calendarSection
-                themeSection
-                shareSection
+                Section("Calendar") {
+                    Picker("Save events to", selection: $selectedCalendarID) {
+                        ForEach(calendarManager.calendars, id: \.calendarIdentifier) { calendar in
+                            Label {
+                                Text(calendar.title)
+                            } icon: {
+                                Circle()
+                                    .fill(Color(cgColor: calendar.cgColor))
+                                    .frame(width: 10, height: 10)
+                            }
+                            .tag(calendar.calendarIdentifier)
+                        }
+                    }
+                }
+
+                Section {
+                    Toggle("Long session reminder", isOn: $reminders.isEnabled)
+                        .onChange(of: reminders.isEnabled) { _, enabled in
+                            guard enabled else {
+                                ReminderNotifications.cancel()
+                                return
+                            }
+                            Task { await enableReminders() }
+                        }
+
+                    if reminders.isEnabled {
+                        Picker("Remind me after", selection: $reminders.minutes) {
+                            ForEach(ReminderPreferences.minuteChoices, id: \.self) { minutes in
+                                Text(minutesLabel(minutes)).tag(minutes)
+                            }
+                        }
+                    }
+                } header: {
+                    Text("Reminder")
+                } footer: {
+                    Text("IDIN asks whether to keep going or save the session once it runs longer than this. The alert uses the system notification sound.")
+                }
+
+                Section("Appearance") {
+                    Picker("Theme", selection: $themeName) {
+                        ForEach(AppTheme.allCases) { theme in
+                            Label(theme.title, systemImage: theme.symbolName)
+                                .tag(theme.rawValue)
+                        }
+                    }
+                    .pickerStyle(.inline)
+                    .labelsHidden()
+                }
+
+                Section {
+                    ShareLink(item: Brand.shareMessage) {
+                        Label("Share \(Brand.name) with a friend", systemImage: "square.and.arrow.up")
+                    }
+                    NavigationLink {
+                        AboutView()
+                    } label: {
+                        HStack {
+                            Label("About \(Brand.name)", systemImage: "info.circle")
+                            Spacer()
+                            Text(AppVersion.short)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                } footer: {
+                    Text(Brand.tagline)
+                }
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
+            // A sheet does not inherit the presenter's preferredColorScheme, so the
+            // theme has to be applied here too — otherwise picking Light/Dark looks
+            // like it does nothing while Settings is open.
+            .idinTheme(theme)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
@@ -39,103 +96,25 @@ struct iOSSettingsView: View {
                 }
             }
         }
-        .sheet(isPresented: $showShareSheet) {
-            ShareSheet()
-        }
     }
 
-    private var calendarSection: some View {
-        Section("Calendar") {
-            let calendars: [EKCalendar] = manager.calendars
-            ForEach(calendars, id: \.calendarIdentifier) { cal in
-                calendarRow(cal)
-            }
-        }
+    private func minutesLabel(_ minutes: Int) -> String {
+        Duration.seconds(minutes * 60)
+            .formatted(.units(allowed: [.hours, .minutes], width: .wide))
     }
 
-    private func calendarRow(_ cal: EKCalendar) -> some View {
-        Button {
-            manager.selectedCalendar = cal
-            manager.saveSelectedCalendar()
-        } label: {
-            HStack {
-                Circle()
-                    .fill(Color(cgColor: cal.cgColor))
-                    .frame(width: 10, height: 10)
-                Text(cal.title)
-                    .foregroundStyle(.primary)
-                Spacer()
-                if manager.selectedCalendar?.calendarIdentifier == cal.calendarIdentifier {
-                    Image(systemName: "checkmark")
-                        .fontWeight(.semibold)
-                        .foregroundStyle(.tint)
-                }
-            }
-        }
-    }
+    /// Asks for notification permission the first time reminders are switched on, and
+    /// arms the reminder for a session that is already running.
+    private func enableReminders() async {
+        let granted = await ReminderNotifications.requestAuthorization()
+        guard granted, let task = SyncManager.shared.runningTask else { return }
 
-    private var themeSection: some View {
-        Section("Theme") {
-            HStack(spacing: 0) {
-                ForEach(AppTheme.allCases) { theme in
-                    ThemeSwatch(theme: theme, isSelected: themeName == theme.rawValue) {
-                        themeName = theme.rawValue
-                    }
-                    if theme.rawValue != AppTheme.allCases.last?.rawValue {
-                        Spacer()
-                    }
-                }
-            }
-            .padding(.vertical, 6)
-        }
-    }
-
-    private var shareSection: some View {
-        Section {
-            Button {
-                showShareSheet = true
-            } label: {
-                Label("Share IDIN with a friend", systemImage: "square.and.arrow.up")
-            }
-        }
-    }
-}
-
-private struct ThemeSwatch: View {
-    let theme: AppTheme
-    let isSelected: Bool
-    let onTap: () -> Void
-
-    var body: some View {
-        VStack(spacing: 7) {
-            ZStack {
-                Circle()
-                    .fill(theme.color)
-                    .frame(width: 44, height: 44)
-                    .shadow(color: theme.color.opacity(0.4), radius: isSelected ? 6 : 0)
-                if isSelected {
-                    Circle()
-                        .strokeBorder(theme.color, lineWidth: 2.5)
-                        .frame(width: 54, height: 54)
-                    Image(systemName: "checkmark")
-                        .font(.system(size: 15, weight: .bold))
-                        .foregroundStyle(.white)
-                }
-            }
-            Text(theme.rawValue)
-                .font(.system(size: 12, weight: isSelected ? .semibold : .regular))
-                .foregroundStyle(isSelected ? .primary : .secondary)
-        }
-        .onTapGesture(perform: onTap)
-    }
-}
-
-private struct ShareSheet: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UIActivityViewController {
-        UIActivityViewController(
-            activityItems: ["I use IDIN (I Do It Now) to track what I actually work on instead of what I planned. Simple, honest productivity."],
-            applicationActivities: nil
+        let elapsed = task.elapsed()
+        let remaining = max(1, reminders.interval - elapsed)
+        await ReminderNotifications.schedule(
+            for: task,
+            after: remaining,
+            thresholdText: reminders.thresholdText
         )
     }
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
 }

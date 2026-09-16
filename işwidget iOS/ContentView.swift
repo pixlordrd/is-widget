@@ -1,126 +1,116 @@
 import SwiftUI
 import EventKit
+import IDINCore
 
 struct ContentView: View {
-    @State private var manager = CalendarManager()
-    @State private var sync = SyncManager()
+    @State private var calendarManager = CalendarManager()
     @State private var taskText = ""
-    @State private var isSaved = false
+    /// Kept briefly after Done so the "Saved to calendar!" confirmation can be shown.
+    @State private var savedTask: RunningTask?
     @State private var showSettings = false
-    @AppStorage("iOSTheme") private var themeName: String = AppTheme.indigo.rawValue
-    @FocusState private var isTextFocused: Bool
+    @State private var errorMessage: String?
+    @State private var monitor = LongRunMonitor()
+    /// Chosen once per launch, then re-rolled whenever a new session starts.
+    @State private var quote = QuoteLibrary.random()
+    @AppStorage("selectedCalendarID") private var selectedCalendarID = ""
+    @AppStorage("iOSTheme") private var themeName = AppTheme.system.rawValue
 
-    private var themeColor: Color {
-        AppTheme(rawValue: themeName)?.color ?? .indigo
+    private var theme: AppTheme {
+        AppTheme(rawValue: themeName) ?? .system
     }
+
+    private let sync = SyncManager.shared
+    private let reminders = ReminderPreferences.shared
 
     var body: some View {
         NavigationStack {
             Group {
-                if manager.accessDenied {
-                    accessDeniedView
-                } else if manager.calendars.isEmpty {
-                    ProgressView("Loading calendars...")
+                if calendarManager.accessDenied {
+                    AccessDeniedView()
+                } else if calendarManager.calendars.isEmpty {
+                    ProgressView("Loading calendars…")
                 } else if let task = sync.runningTask {
-                    runningView(task: task)
+                    runningView(task: task, isSaved: false)
+                } else if let savedTask {
+                    runningView(task: savedTask, isSaved: true)
                 } else {
                     idleView
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    VStack(spacing: 1) {
-                        Text("IDIN")
-                            .font(.system(size: 30, weight: .bold))
-                        Text("I Do It Now")
-                            .font(.system(size: 10, weight: .light))
-                            .foregroundStyle(.secondary)
-                    }
-                }
+                ToolbarItem(placement: .principal) { BrandMark() }
                 ToolbarItem(placement: .primaryAction) {
                     Button { showSettings = true } label: {
                         Image(systemName: "gearshape")
                     }
-                    .disabled(manager.calendars.isEmpty && !manager.accessDenied)
+                    .disabled(calendarManager.calendars.isEmpty)
                 }
             }
         }
-        .task { await manager.requestAccess() }
-        .onChange(of: manager.selectedCalendar) { manager.saveSelectedCalendar() }
-        .sheet(isPresented: $showSettings) {
-            iOSSettingsView(manager: manager, themeName: $themeName)
+        .task {
+            await calendarManager.requestAccess()
+            adoptDefaultCalendarIfNeeded()
+            await refreshReminder(for: sync.runningTask)
         }
+        .onChange(of: sync.runningTask) { _, task in
+            Task { await refreshReminder(for: task) }
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView(calendarManager: calendarManager, selectedCalendarID: $selectedCalendarID)
+        }
+        .alert("Could not save", isPresented: .constant(errorMessage != nil)) {
+            Button("OK") { errorMessage = nil }
+        } message: {
+            Text(errorMessage ?? "")
+        }
+        .alert(
+            "Still on it?",
+            isPresented: .constant(monitor.overdueTask != nil),
+            presenting: monitor.overdueTask
+        ) { task in
+            Button("Keep Going") {
+                monitor.keepGoing()
+                Task { await refreshReminder(for: task) }
+            }
+            Button("Save & Finish") {
+                monitor.dismiss()
+                Task { await complete(task) }
+            }
+        } message: { task in
+            Text("You've passed \(task.elapsedText()) on “\(task.text)”.")
+        }
+        .idinTheme(theme)
     }
 
     // MARK: Running
 
-    private func runningView(task: RunningTaskInfo) -> some View {
-        VStack(spacing: 0) {
-            // Current time + date strip
+    private func runningView(task: RunningTask, isSaved: Bool) -> some View {
+        VStack {
             TimelineView(.everyMinute) { context in
-                HStack(spacing: 6) {
-                    Text(context.date, style: .time)
-                        .monospacedDigit()
-                    Text("·")
-                        .foregroundStyle(.quaternary)
-                    Text(context.date, format: .dateTime.weekday(.abbreviated).month(.abbreviated).day())
-                }
-                .font(.system(size: 14, weight: .light))
-                .foregroundStyle(.secondary)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.top, 8)
+                clockStrip(date: context.date)
             }
-
             Spacer()
-
-            // Task name
-            Text(task.text)
-                .font(.system(size: 26, weight: .semibold))
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 32)
-
-            Spacer().frame(height: 36)
-
-            // Elapsed timer
-            VStack(spacing: 6) {
-                HStack(spacing: 10) {
-                    PulsingDot()
-                    Text(task.startTime, style: .timer)
-                        .font(.system(size: 56, weight: .bold, design: .monospaced))
-                        .foregroundStyle(.red)
-                        .monospacedDigit()
-                }
-                Text("Started at \(task.startTime, style: .time)")
-                    .font(.system(size: 13, weight: .regular))
-                    .foregroundStyle(.tertiary)
-            }
-
-            Spacer()
-
-            // Done / Saved
-            Group {
-                if isSaved {
-                    Label("Saved to calendar!", systemImage: "checkmark.circle.fill")
-                        .font(.headline)
-                        .foregroundStyle(.green)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(.green.opacity(0.1), in: RoundedRectangle(cornerRadius: 16))
-                } else {
-                    Button { finishTask(task: task) } label: {
-                        Label("Done", systemImage: "stop.fill")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 16)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.red)
-                }
+            // Done sits above the timer and well clear of the bottom edge, so the
+            // home-indicator swipe can't land on it.
+            TimerView(task: task, isSaved: isSaved, actionPlacement: .aboveTimer) {
+                Task { await complete(task) }
             }
             .padding(.horizontal, 24)
-            .padding(.bottom, 24)
+            Spacer()
+            Spacer(minLength: 72)
         }
+    }
+
+    private func clockStrip(date: Date) -> some View {
+        HStack(spacing: 6) {
+            Text(date, style: .time).monospacedDigit()
+            Text("·").foregroundStyle(.quaternary)
+            Text(date, format: .dateTime.weekday(.abbreviated).month(.abbreviated).day())
+        }
+        .font(.system(size: 14, weight: .light))
+        .foregroundStyle(.secondary)
+        .padding(.top, 8)
     }
 
     // MARK: Idle
@@ -129,87 +119,106 @@ struct ContentView: View {
         VStack(spacing: 0) {
             Spacer()
 
-            // Clock + date
-            TimelineView(.everyMinute) { (context: TimelineViewDefaultContext) in
+            TimelineView(.everyMinute) { context in
                 VStack(spacing: 6) {
                     Text(context.date, style: .time)
-                        .font(.system(size: 72, weight: .thin, design: .default))
+                        .font(.system(size: 72, weight: .thin))
                         .monospacedDigit()
-
                     Text(context.date, format: .dateTime.weekday(.wide).month(.wide).day())
-                        .font(.system(size: 16, weight: .regular))
+                        .font(.system(size: 16))
                         .foregroundStyle(.secondary)
-                        .kerning(0.3)
                 }
             }
 
-            Spacer().frame(height: 20)
-
-            Text("Not what you planned. What you did.")
-                .font(.system(size: 13, weight: .regular))
+            Text(Brand.tagline)
+                .font(.system(size: 13))
                 .foregroundStyle(.tertiary)
                 .multilineTextAlignment(.center)
+                .padding(.top, 20)
 
-            if let last = sync.lastTaskText {
-                Spacer().frame(height: 14)
-                Label(last, systemImage: "clock.arrow.circlepath")
-                    .font(.system(size: 12))
-                    .foregroundStyle(.quaternary)
-                    .lineLimit(1)
-                    .padding(.horizontal, 32)
-            }
+            QuoteView(quote: quote)
+                .padding(.horizontal, 32)
+                .padding(.top, 14)
 
             Spacer()
 
-            // Input card
-            VStack(spacing: 0) {
-                TextField("What are you working on?", text: $taskText, axis: .vertical)
-                    .textFieldStyle(.plain)
-                    .font(.system(size: 17, weight: .regular))
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2...4)
-                    .focused($isTextFocused)
-                    .frame(minHeight: 64)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 20)
-
-                Divider().padding(.horizontal, 16)
-
-                Button {
-                    let calId = manager.selectedCalendar?.calendarIdentifier ?? ""
-                    guard !taskText.trimmingCharacters(in: .whitespaces).isEmpty else { return }
-                    sync.startTask(
-                        text: taskText.trimmingCharacters(in: .whitespaces),
-                        calendarIdentifier: calId
-                    )
-                    isTextFocused = false
-                } label: {
-                    Label("Start", systemImage: "play.fill")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(themeColor)
-                .disabled(taskText.trimmingCharacters(in: .whitespaces).isEmpty)
-                .padding([.horizontal, .bottom], 12)
-                .padding(.top, 10)
-            }
+            TaskInputView(
+                text: $taskText,
+                lastTaskText: sync.lastTaskText,
+                onStart: start,
+                onReuseLast: { _ in start() }
+            )
+            .padding(20)
             .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 22))
             .padding(.horizontal, 20)
             .padding(.bottom, 16)
         }
     }
 
-    // MARK: Access Denied
+    // MARK: Actions
 
-    private var accessDeniedView: some View {
+    private func start() {
+        sync.start(taskText, calendarID: selectedCalendarID)
+        taskText = ""
+        quote = QuoteLibrary.random(excluding: quote)
+    }
+
+    /// Writes the event first, then clears the shared running state, so a calendar
+    /// failure can never lose a session.
+    private func complete(_ task: RunningTask) async {
+        let calendarID = task.calendarIdentifier.isEmpty ? selectedCalendarID : task.calendarIdentifier
+        do {
+            try calendarManager.createEvent(
+                title: task.text,
+                start: task.startTime,
+                end: .now,
+                calendarID: calendarID
+            )
+        } catch {
+            errorMessage = error.localizedDescription
+            return
+        }
+
+        sync.finish()
+        savedTask = task
+        try? await Task.sleep(for: .seconds(2))
+        savedTask = nil
+        taskText = ""
+    }
+
+    /// Keeps the in-app prompt and the background notification in step with the
+    /// running task and the current reminder settings.
+    private func refreshReminder(for task: RunningTask?) async {
+        monitor.update(for: task)
+
+        guard reminders.isEnabled, let task else {
+            ReminderNotifications.cancel()
+            return
+        }
+
+        await ReminderNotifications.schedule(
+            for: task,
+            after: monitor.secondsUntilNextPrompt(for: task),
+            thresholdText: reminders.thresholdText
+        )
+    }
+
+    private func adoptDefaultCalendarIfNeeded() {
+        let known = calendarManager.calendars.contains { $0.calendarIdentifier == selectedCalendarID }
+        if !known, let fallback = calendarManager.defaultCalendarID {
+            selectedCalendarID = fallback
+        }
+    }
+}
+
+private struct AccessDeniedView: View {
+    var body: some View {
         VStack(spacing: 16) {
             Image(systemName: "calendar.badge.exclamationmark")
                 .font(.system(size: 52))
                 .foregroundStyle(.secondary)
             Text("Calendar access required").font(.headline)
-            Text("Grant access in Settings > Privacy & Security > Calendars.")
+            Text("IDIN writes finished tasks to your calendar. Grant access in Settings › Privacy & Security › Calendars.")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
@@ -221,43 +230,5 @@ struct ContentView: View {
             }
             .buttonStyle(.bordered)
         }
-    }
-
-    // MARK: Done
-
-    private func finishTask(task: RunningTaskInfo) {
-        let endTime = Date()
-        guard let calendar = manager.selectedCalendar ?? manager.calendars.first,
-              !task.text.isEmpty else { return }
-        do {
-            try manager.createEvent(
-                title: task.text,
-                startDate: task.startTime,
-                endDate: endTime,
-                calendar: calendar
-            )
-            sync.stopTask()
-            withAnimation { isSaved = true }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                withAnimation { taskText = ""; isSaved = false }
-            }
-        } catch {
-            print("Event save error: \(error)")
-        }
-    }
-}
-
-private struct PulsingDot: View {
-    @State private var pulsing = false
-    var body: some View {
-        Circle()
-            .fill(.red)
-            .frame(width: 10, height: 10)
-            .opacity(pulsing ? 0.2 : 1.0)
-            .onAppear {
-                withAnimation(.easeInOut(duration: 0.7).repeatForever(autoreverses: true)) {
-                    pulsing = true
-                }
-            }
     }
 }

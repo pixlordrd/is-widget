@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0FFB1D7E305B1CC7008E9A86 /* IDINCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0FFB1D7D305B1CC7008E9A86 /* IDINCore */; };
+		0FFB1D81305B1CDC008E9A86 /* IDINCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0FFB1D80305B1CDC008E9A86 /* IDINCore */; };
+		0FFB1D84305B1F60008E9A86 /* IDINCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0FFB1D83305B1F60008E9A86 /* IDINCore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		0F33BCDC30398D8A00D2C9C1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -38,10 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0F33BCCF30398D8900D2C9C1 /* işwidget iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "işwidget iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F33BCCF30398D8900D2C9C1 /* IDIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F33BCDB30398D8A00D2C9C1 /* işwidget iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "işwidget iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F33BCE530398D8A00D2C9C1 /* işwidget iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "işwidget iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FB15D8430388813004D1D98 /* işwidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "işwidget.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FB15D8430388813004D1D98 /* IDIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB15D9130388814004D1D98 /* işwidgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "işwidgetTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB15D9B30388814004D1D98 /* işwidgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "işwidgetUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FFB1D84305B1F60008E9A86 /* IDINCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +112,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FFB1D7E305B1CC7008E9A86 /* IDINCore in Frameworks */,
+				0FFB1D81305B1CDC008E9A86 /* IDINCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,20 +144,36 @@
 				0F33BCDE30398D8A00D2C9C1 /* işwidget iOSTests */,
 				0F33BCE830398D8A00D2C9C1 /* işwidget iOSUITests */,
 				0FB15D8530388813004D1D98 /* Products */,
+				0FFB1D68305B18A4008E9A86 /* Shared */,
+				0FFB1D82305B1E05008E9A86 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		0FB15D8530388813004D1D98 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0FB15D8430388813004D1D98 /* işwidget.app */,
+				0FB15D8430388813004D1D98 /* IDIN.app */,
 				0FB15D9130388814004D1D98 /* işwidgetTests.xctest */,
 				0FB15D9B30388814004D1D98 /* işwidgetUITests.xctest */,
-				0F33BCCF30398D8900D2C9C1 /* işwidget iOS.app */,
+				0F33BCCF30398D8900D2C9C1 /* IDIN.app */,
 				0F33BCDB30398D8A00D2C9C1 /* işwidget iOSTests.xctest */,
 				0F33BCE530398D8A00D2C9C1 /* işwidget iOSUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0FFB1D68305B18A4008E9A86 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		0FFB1D82305B1E05008E9A86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,9 +196,10 @@
 			);
 			name = "işwidget iOS";
 			packageProductDependencies = (
+				0FFB1D83305B1F60008E9A86 /* IDINCore */,
 			);
 			productName = "işwidget iOS";
-			productReference = 0F33BCCF30398D8900D2C9C1 /* işwidget iOS.app */;
+			productReference = 0F33BCCF30398D8900D2C9C1 /* IDIN.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0F33BCDA30398D8A00D2C9C1 /* işwidget iOSTests */ = {
@@ -239,9 +265,11 @@
 			);
 			name = "işwidget";
 			packageProductDependencies = (
+				0FFB1D7D305B1CC7008E9A86 /* IDINCore */,
+				0FFB1D80305B1CDC008E9A86 /* IDINCore */,
 			);
 			productName = "işwidget";
-			productReference = 0FB15D8430388813004D1D98 /* işwidget.app */;
+			productReference = 0FB15D8430388813004D1D98 /* IDIN.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0FB15D9030388814004D1D98 /* işwidgetTests */ = {
@@ -333,6 +361,9 @@
 			);
 			mainGroup = 0FB15D7B30388813004D1D98;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0FFB1D7F305B1CDC008E9A86 /* XCLocalSwiftPackageReference "Packages/IDINCore" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0FB15D8530388813004D1D98 /* Products */;
 			projectDirPath = "";
@@ -469,37 +500,39 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "işwidget iOS/işwidget iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 6QN5K328LP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "is-widget-iOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = IDIN;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN needs full access to your Calendar to display available calendars and create activity records.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN, bitirdiğin işleri seçtiğin takvime etkinlik olarak yazar.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 PIXLORD";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "PIXLORD.idin-iOS";
 				PRODUCT_NAME = IDIN;
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -511,37 +544,39 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "işwidget iOS/işwidget iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 6QN5K328LP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "is-widget-iOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = IDIN;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN needs full access to your Calendar to display available calendars and create activity records.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN, bitirdiğin işleri seçtiğin takvime etkinlik olarak yazar.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 PIXLORD";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "PIXLORD.idin-iOS";
 				PRODUCT_NAME = IDIN;
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -769,7 +804,7 @@
 				CODE_SIGN_ENTITLEMENTS = "işwidget/işwidget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 6QN5K328LP;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -789,14 +824,16 @@
 				INFOPLIST_KEY_CFBundleDisplayName = IDIN;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN needs full access to your Calendar to display available calendars and create activity records.";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_LSUIElement = NO;
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN, bitirdiğin işleri seçtiğin takvime etkinlik olarak yazar.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 PIXLORD";
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.6;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "PIXLORD.idin-iOS";
 				PRODUCT_NAME = IDIN;
 				REGISTER_APP_GROUPS = YES;
@@ -807,7 +844,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -821,7 +858,7 @@
 				CODE_SIGN_ENTITLEMENTS = "işwidget/işwidget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 6QN5K328LP;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -841,14 +878,16 @@
 				INFOPLIST_KEY_CFBundleDisplayName = IDIN;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN needs full access to your Calendar to display available calendars and create activity records.";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_LSUIElement = NO;
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN, bitirdiğin işleri seçtiğin takvime etkinlik olarak yazar.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 PIXLORD";
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.6;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "PIXLORD.idin-iOS";
 				PRODUCT_NAME = IDIN;
 				REGISTER_APP_GROUPS = YES;
@@ -859,7 +898,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -1010,6 +1049,29 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		0FFB1D7F305B1CDC008E9A86 /* XCLocalSwiftPackageReference "Packages/IDINCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/IDINCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0FFB1D7D305B1CC7008E9A86 /* IDINCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = IDINCore;
+		};
+		0FFB1D80305B1CDC008E9A86 /* IDINCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = IDINCore;
+		};
+		0FFB1D83305B1F60008E9A86 /* IDINCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FFB1D7F305B1CDC008E9A86 /* XCLocalSwiftPackageReference "Packages/IDINCore" */;
+			productName = IDINCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0FB15D7C30388813004D1D98 /* Project object */;
 }

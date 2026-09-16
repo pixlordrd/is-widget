@@ -1,0 +1,17 @@
+// IDIN shared identity settings.
+//
+// The iCloud key-value store identifier MUST stay byte-identical across the iOS and
+// macOS targets — if they diverge, cross-device sync dies silently. It must also stay
+// identical to what IDIN 1.x shipped, otherwise existing users lose their running task.
+//
+// To make this file the single source of truth:
+//   Xcode › Project "idin" › Info › Configurations › set Debug + Release to "IDIN"
+//   for both targets, then change the value in each .entitlements file to $(IDIN_KVS_ID).
+//
+// Until that wiring is done, both entitlements files carry this exact literal.
+
+IDIN_KVS_ID = $(TeamIdentifierPrefix)PIXLORD.idin-iOS
+
+// App Store identity — do not change these if V2 must ship as an update of the live app.
+PRODUCT_BUNDLE_IDENTIFIER = PIXLORD.idin-iOS
+MARKETING_VERSION = 2.0

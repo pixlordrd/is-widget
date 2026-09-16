@@ -1,8 +1,11 @@
 import SwiftUI
+import IDINCore
 
 struct SettingsView: View {
     @Bindable var settings: AppSettings
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openWindow) private var openWindow
+    @Bindable private var reminders = ReminderPreferences.shared
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
@@ -17,7 +20,7 @@ struct SettingsView: View {
                     Text("App Name")
                         .foregroundStyle(.secondary)
                         .gridColumnAlignment(.trailing)
-                    TextField("IDIN", text: $settings.appName)
+                    TextField(Brand.name, text: $settings.appName)
                         .textFieldStyle(.roundedBorder)
                 }
 
@@ -41,31 +44,62 @@ struct SettingsView: View {
                     Text("Theme")
                         .foregroundStyle(.secondary)
                         .gridColumnAlignment(.trailing)
-                    HStack(spacing: 12) {
+                    Picker("", selection: $settings.themeName) {
                         ForEach(AppTheme.allCases) { theme in
-                            Button {
-                                settings.themeName = theme.rawValue
-                            } label: {
-                                VStack(spacing: 4) {
-                                    ZStack {
-                                        Circle()
-                                            .fill(theme.color)
-                                            .frame(width: 24, height: 24)
-                                        if settings.themeName == theme.rawValue {
-                                            Circle()
-                                                .strokeBorder(theme.color, lineWidth: 2)
-                                                .frame(width: 30, height: 30)
-                                            Image(systemName: "checkmark")
-                                                .font(.system(size: 10, weight: .bold))
-                                                .foregroundStyle(.white)
-                                        }
-                                    }
-                                    Text(theme.rawValue)
-                                        .font(.system(size: 9))
-                                        .foregroundStyle(settings.themeName == theme.rawValue ? .primary : .secondary)
+                            Label(theme.title, systemImage: theme.symbolName)
+                                .tag(theme.rawValue)
+                        }
+                    }
+                    .labelsHidden()
+                    .pickerStyle(.segmented)
+                }
+            }
+
+            Divider()
+
+            Grid(alignment: .leading, horizontalSpacing: 12, verticalSpacing: 10) {
+                GridRow {
+                    Text("Reminder")
+                        .foregroundStyle(.secondary)
+                        .gridColumnAlignment(.trailing)
+                    Toggle("Warn me on long sessions", isOn: $reminders.isEnabled)
+                }
+
+                if reminders.isEnabled {
+                    GridRow {
+                        Text("After")
+                            .foregroundStyle(.secondary)
+                            .gridColumnAlignment(.trailing)
+                        Picker("", selection: $reminders.minutes) {
+                            ForEach(ReminderPreferences.minuteChoices, id: \.self) { minutes in
+                                Text(minutesLabel(minutes)).tag(minutes)
+                            }
+                        }
+                        .labelsHidden()
+                        .frame(width: 130)
+                    }
+
+                    GridRow {
+                        Text("Sound")
+                            .foregroundStyle(.secondary)
+                            .gridColumnAlignment(.trailing)
+                        HStack(spacing: 8) {
+                            Picker("", selection: $reminders.sound) {
+                                ForEach(AlertSound.allCases) { sound in
+                                    Text(sound.title).tag(sound)
                                 }
                             }
-                            .buttonStyle(.plain)
+                            .labelsHidden()
+                            .frame(width: 130)
+                            .onChange(of: reminders.sound) { _, sound in sound.play() }
+
+                            Button {
+                                reminders.sound.play()
+                            } label: {
+                                Image(systemName: "play.circle")
+                            }
+                            .buttonStyle(.borderless)
+                            .help("Preview sound")
                         }
                     }
                 }
@@ -74,6 +108,14 @@ struct SettingsView: View {
             Divider()
 
             HStack {
+                Button {
+                    dismiss()
+                    openWindow(id: IDINMacApp.aboutWindowID)
+                } label: {
+                    Label("About \(Brand.name) \(AppVersion.short)", systemImage: "info.circle")
+                        .font(.caption)
+                }
+                .buttonStyle(.link)
                 Spacer()
                 Button("OK") {
                     settings.save()
@@ -84,6 +126,13 @@ struct SettingsView: View {
             }
         }
         .padding()
-        .frame(width: 290)
+        .frame(width: 320)
+        // Sheets don't inherit the presenter's preferredColorScheme.
+        .idinTheme(settings.theme)
+    }
+
+    private func minutesLabel(_ minutes: Int) -> String {
+        Duration.seconds(minutes * 60)
+            .formatted(.units(allowed: [.hours, .minutes], width: .wide))
     }
 }

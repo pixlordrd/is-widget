@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0F33BCCE30398D8900D2C9C1"
-               BuildableName = "&#x130;&#x15F;widget iOS.app"
-               BlueprintName = "&#x130;&#x15F;widget iOS"
+               BuildableName = "IDIN.app"
+               BlueprintName = "&#x130;&#x15f;widget iOS"
                ReferencedContainer = "container:idin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -36,8 +36,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0F33BCDA30398D8A00D2C9C1"
-               BuildableName = "&#x130;&#x15F;widget iOSTests.xctest"
-               BlueprintName = "&#x130;&#x15F;widget iOSTests"
+               BuildableName = "is&#x327;widget iOSTests.xctest"
+               BlueprintName = "&#x130;&#x15f;widget iOSTests"
                ReferencedContainer = "container:idin.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -47,8 +47,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0F33BCE430398D8A00D2C9C1"
-               BuildableName = "&#x130;&#x15F;widget iOSUITests.xctest"
-               BlueprintName = "&#x130;&#x15F;widget iOSUITests"
+               BuildableName = "is&#x327;widget iOSUITests.xctest"
+               BlueprintName = "&#x130;&#x15f;widget iOSUITests"
                ReferencedContainer = "container:idin.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -69,8 +69,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0F33BCCE30398D8900D2C9C1"
-            BuildableName = "&#x130;&#x15F;widget iOS.app"
-            BlueprintName = "&#x130;&#x15F;widget iOS"
+            BuildableName = "IDIN.app"
+            BlueprintName = "&#x130;&#x15f;widget iOS"
             ReferencedContainer = "container:idin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -86,8 +86,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0F33BCCE30398D8900D2C9C1"
-            BuildableName = "&#x130;&#x15F;widget iOS.app"
-            BlueprintName = "&#x130;&#x15F;widget iOS"
+            BuildableName = "IDIN.app"
+            BlueprintName = "&#x130;&#x15f;widget iOS"
             ReferencedContainer = "container:idin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

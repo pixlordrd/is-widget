@@ -1,64 +1,58 @@
-import Foundation
 import SwiftUI
 import AppKit
+import IDINCore
 
-enum AppTheme: String, CaseIterable, Identifiable {
-    case indigo = "Indigo"
-    case ocean = "Ocean"
-    case sunset = "Sunset"
-
-    var id: String { rawValue }
-
-    var color: Color {
-        switch self {
-        case .indigo: return .indigo
-        case .ocean: return Color(hue: 0.58, saturation: 0.75, brightness: 0.88)
-        case .sunset: return Color(hue: 0.06, saturation: 0.82, brightness: 0.95)
-        }
-    }
-}
-
+/// Mac-only presentation preferences, persisted in UserDefaults.
+@MainActor
 @Observable
-class AppSettings {
+final class AppSettings {
     static let defaultHeaderColor = Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.04)
+
+    private enum Key {
+        static let appName = "appName"
+        static let theme = "macTheme"
+        static let headerColor = "headerColorRGBA"
+    }
 
     var appName: String
     var headerColor: Color
     var themeName: String
 
-    init() {
-        appName = UserDefaults.standard.string(forKey: "appName") ?? "IDIN"
-        headerColor = AppSettings.loadColor()
-        themeName = UserDefaults.standard.string(forKey: "themeName") ?? AppTheme.indigo.rawValue
+    var theme: AppTheme {
+        AppTheme(rawValue: themeName) ?? .system
     }
 
-    var theme: AppTheme {
-        AppTheme(rawValue: themeName) ?? .indigo
+    init() {
+        let defaults = UserDefaults.standard
+        appName = defaults.string(forKey: Key.appName) ?? Brand.name
+        themeName = defaults.string(forKey: Key.theme) ?? AppTheme.system.rawValue
+        headerColor = Self.loadColor(from: defaults)
     }
 
     func save() {
-        UserDefaults.standard.set(appName, forKey: "appName")
-        UserDefaults.standard.set(themeName, forKey: "themeName")
-        AppSettings.saveColor(headerColor)
+        let defaults = UserDefaults.standard
+        defaults.set(appName.isEmpty ? Brand.name : appName, forKey: Key.appName)
+        defaults.set(themeName, forKey: Key.theme)
+        defaults.set(Self.components(of: headerColor), forKey: Key.headerColor)
     }
 
-    private static func loadColor() -> Color {
-        guard let components = UserDefaults.standard.array(forKey: "headerColorRGBA") as? [Double],
-              components.count == 4 else {
+    // MARK: Color storage
+
+    private static func loadColor(from defaults: UserDefaults) -> Color {
+        guard let parts = defaults.array(forKey: Key.headerColor) as? [Double], parts.count == 4 else {
             return defaultHeaderColor
         }
-        return Color(.sRGB, red: components[0], green: components[1], blue: components[2], opacity: components[3])
+        return Color(.sRGB, red: parts[0], green: parts[1], blue: parts[2], opacity: parts[3])
     }
 
-    static func saveColor(_ color: Color) {
+    private static func components(of color: Color) -> [Double] {
         let nsColor = NSColor(color)
-        let target = nsColor.usingColorSpace(.sRGB) ?? nsColor
-        let components: [Double] = [
-            Double(target.redComponent),
-            Double(target.greenComponent),
-            Double(target.blueComponent),
-            Double(target.alphaComponent)
+        let srgb = nsColor.usingColorSpace(.sRGB) ?? nsColor
+        return [
+            Double(srgb.redComponent),
+            Double(srgb.greenComponent),
+            Double(srgb.blueComponent),
+            Double(srgb.alphaComponent)
         ]
-        UserDefaults.standard.set(components, forKey: "headerColorRGBA")
     }
 }
