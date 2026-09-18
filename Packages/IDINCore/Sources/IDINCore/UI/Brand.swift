@@ -1,13 +1,28 @@
 import SwiftUI
 
 /// Product naming, used identically on both platforms.
+///
+/// Strings that reach the screen resolve against `Bundle.module`, so they can be
+/// translated in the package's own String Catalog.
 public enum Brand {
+    /// Not localized — the product name is the same in every language.
     public static let name = "IDIN"
-    public static let expansion = "I Do It Now"
-    public static let tagline = "Not what you planned. What you did."
-    public static let shareMessage = """
-        I use IDIN (I Do It Now) to record what I actually worked on instead of what I planned.
-        """
+
+    public static var expansion: LocalizedStringResource {
+        LocalizedStringResource("I Do It Now", bundle: .atURL(Bundle.module.bundleURL))
+    }
+
+    public static var tagline: LocalizedStringResource {
+        LocalizedStringResource("Not what you planned. What you did.", bundle: .atURL(Bundle.module.bundleURL))
+    }
+
+    /// Plain text for the share sheet, resolved in the current language.
+    public static var shareMessage: String {
+        String(
+            localized: "I use IDIN (I Do It Now) to record what I actually worked on instead of what I planned.",
+            bundle: Bundle.module
+        )
+    }
 }
 
 /// Stacked wordmark: IDIN over "I Do It Now".

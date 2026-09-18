@@ -13,11 +13,6 @@ public enum AppVersion {
         Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "—"
     }
 
-    /// e.g. "Version 2.0 (4)"
-    public static var display: String {
-        "Version \(short) (\(build))"
-    }
-
     public static var copyright: String? {
         Bundle.main.infoDictionary?["NSHumanReadableCopyright"] as? String
     }
@@ -27,12 +22,31 @@ public enum AppVersion {
 public struct AboutView: View {
     public init() {}
 
-    private let highlights = [
-        "Start on one device, finish on another — the running task follows you.",
-        "Finished sessions land in the calendar they were started with.",
-        "A calendar write that fails no longer loses the session.",
-        "Light, dark or system appearance on both platforms."
-    ]
+    // Written out one by one so Xcode's string extractor can see each literal.
+    private var highlights: [LocalizedStringResource] {
+        [
+            LocalizedStringResource(
+                "Start on one device, finish on another — the running task follows you.",
+                bundle: .atURL(Bundle.module.bundleURL)
+            ),
+            LocalizedStringResource(
+                "Finished sessions land in the calendar they were started with.",
+                bundle: .atURL(Bundle.module.bundleURL)
+            ),
+            LocalizedStringResource(
+                "A calendar write that fails no longer loses the session.",
+                bundle: .atURL(Bundle.module.bundleURL)
+            ),
+            LocalizedStringResource(
+                "A reminder asks whether to keep going once a session runs long.",
+                bundle: .atURL(Bundle.module.bundleURL)
+            ),
+            LocalizedStringResource(
+                "Light, dark or system appearance on both platforms.",
+                bundle: .atURL(Bundle.module.bundleURL)
+            )
+        ]
+    }
 
     public var body: some View {
         content
@@ -61,12 +75,17 @@ public struct AboutView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
             }
-            Section("New in \(AppVersion.short)") {
-                ForEach(highlights, id: \.self) { item in
-                    Label(item, systemImage: "checkmark.circle.fill")
-                        .labelStyle(.titleAndIcon)
-                        .font(.callout)
+            Section {
+                ForEach(highlights, id: \.key) { item in
+                    Label {
+                        Text(item)
+                    } icon: {
+                        Image(systemName: "checkmark.circle.fill")
+                    }
+                    .font(.callout)
                 }
+            } header: {
+                Text("New in \(AppVersion.short)", bundle: Bundle.module)
             }
             Section {
                 shareButton
@@ -76,7 +95,7 @@ public struct AboutView: View {
                 }
             }
         }
-        .navigationTitle("About")
+        .navigationTitle(Text("About", bundle: Bundle.module))
         #endif
     }
 
@@ -84,7 +103,7 @@ public struct AboutView: View {
         VStack(spacing: 10) {
             AppIconView()
             BrandMark(size: 34)
-            Text(AppVersion.display)
+            Text("Version \(AppVersion.short) (\(AppVersion.build))", bundle: Bundle.module)
                 .font(.callout)
                 .monospacedDigit()
                 .foregroundStyle(.secondary)
@@ -97,13 +116,17 @@ public struct AboutView: View {
 
     private var whatsNew: some View {
         VStack(alignment: .leading, spacing: 7) {
-            Text("New in \(AppVersion.short)")
+            Text("New in \(AppVersion.short)", bundle: Bundle.module)
                 .font(.caption)
                 .fontWeight(.semibold)
                 .foregroundStyle(.secondary)
-            ForEach(highlights, id: \.self) { item in
-                Label(item, systemImage: "checkmark.circle.fill")
-                    .font(.caption)
+            ForEach(highlights, id: \.key) { item in
+                Label {
+                    Text(item)
+                } icon: {
+                    Image(systemName: "checkmark.circle.fill")
+                }
+                .font(.caption)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -122,7 +145,11 @@ public struct AboutView: View {
 
     private var shareButton: some View {
         ShareLink(item: Brand.shareMessage) {
-            Label("Share \(Brand.name) with a friend", systemImage: "square.and.arrow.up")
+            Label {
+                Text("Share \(Brand.name) with a friend", bundle: Bundle.module)
+            } icon: {
+                Image(systemName: "square.and.arrow.up")
+            }
         }
     }
 }

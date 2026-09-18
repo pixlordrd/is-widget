@@ -358,6 +358,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = 0FB15D7B30388813004D1D98;
 			minimizedProjectReferenceProxies = 1;
@@ -500,14 +501,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "işwidget iOS/işwidget iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 6QN5K328LP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "is-widget-iOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = IDIN;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN, bitirdiğin işleri seçtiğin takvime etkinlik olarak yazar.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN writes each finished task to the calendar you choose, as a real event.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 PIXLORD";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -519,7 +520,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "PIXLORD.idin-iOS";
 				PRODUCT_NAME = IDIN;
 				SDKROOT = iphoneos;
@@ -544,14 +545,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "işwidget iOS/işwidget iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 6QN5K328LP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "is-widget-iOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = IDIN;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN, bitirdiğin işleri seçtiğin takvime etkinlik olarak yazar.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN writes each finished task to the calendar you choose, as a real event.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 PIXLORD";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -563,7 +564,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "PIXLORD.idin-iOS";
 				PRODUCT_NAME = IDIN;
 				SDKROOT = iphoneos;
@@ -804,7 +805,7 @@
 				CODE_SIGN_ENTITLEMENTS = "işwidget/işwidget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 6QN5K328LP;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -825,7 +826,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = NO;
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN, bitirdiğin işleri seçtiğin takvime etkinlik olarak yazar.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN writes each finished task to the calendar you choose, as a real event.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 PIXLORD";
 				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -833,7 +834,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.6;
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "PIXLORD.idin-iOS";
 				PRODUCT_NAME = IDIN;
 				REGISTER_APP_GROUPS = YES;
@@ -858,7 +859,7 @@
 				CODE_SIGN_ENTITLEMENTS = "işwidget/işwidget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 6QN5K328LP;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -879,7 +880,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = NO;
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN, bitirdiğin işleri seçtiğin takvime etkinlik olarak yazar.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN writes each finished task to the calendar you choose, as a real event.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 PIXLORD";
 				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -887,7 +888,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.6;
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "PIXLORD.idin-iOS";
 				PRODUCT_NAME = IDIN;
 				REGISTER_APP_GROUPS = YES;

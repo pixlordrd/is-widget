@@ -1,0 +1,308 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "·" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "·"
+          }
+        }
+      }
+    },
+    "“%@” is still running — quitting now will not write this session to your calendar." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "“%@” hâlâ çalışıyor — şimdi çıkarsan bu oturum takvimine yazılmaz."
+          }
+        }
+      }
+    },
+    "About %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ Hakkında"
+          }
+        }
+      }
+    },
+    "About %@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "About %1$@ %2$@"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@ %2$@ Hakkında"
+          }
+        }
+      }
+    },
+    "After" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Süre"
+          }
+        }
+      }
+    },
+    "App Name" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Uygulama Adı"
+          }
+        }
+      }
+    },
+    "Are you sure you want to quit?" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Çıkmak istediğinden emin misin?"
+          }
+        }
+      }
+    },
+    "Calendar access required" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Takvim erişimi gerekli"
+          }
+        }
+      }
+    },
+    "Calendar for finished tasks" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bitirilen işlerin yazılacağı takvim"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Vazgeç"
+          }
+        }
+      }
+    },
+    "Could not save" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kaydedilemedi"
+          }
+        }
+      }
+    },
+    "Grant access in System Settings › Privacy & Security › Calendars." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Erişimi Sistem Ayarları › Gizlilik ve Güvenlik › Takvimler bölümünden ver."
+          }
+        }
+      }
+    },
+    "Header Color" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Başlık Rengi"
+          }
+        }
+      }
+    },
+    "Keep Going" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Devam Et"
+          }
+        }
+      }
+    },
+    "Loading calendars…" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Takvimler yükleniyor…"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tamam"
+          }
+        }
+      }
+    },
+    "Open System Settings" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sistem Ayarları'nı aç"
+          }
+        }
+      }
+    },
+    "Preview sound" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sesi dinle"
+          }
+        }
+      }
+    },
+    "Quit %@?" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ uygulamasından çıkılsın mı?"
+          }
+        }
+      }
+    },
+    "Reminder" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hatırlatıcı"
+          }
+        }
+      }
+    },
+    "Reset" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sıfırla"
+          }
+        }
+      }
+    },
+    "Save & Finish" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kaydet ve Bitir"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ayarlar"
+          }
+        }
+      }
+    },
+    "Sound" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ses"
+          }
+        }
+      }
+    },
+    "Still on it?" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hâlâ bu işte misin?"
+          }
+        }
+      }
+    },
+    "Theme" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tema"
+          }
+        }
+      }
+    },
+    "Warn me on long sessions" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Uzun oturumlarda uyar"
+          }
+        }
+      }
+    },
+    "You've passed %@ on “%@”." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You've passed %1$@ on “%2$@”."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "“%2$@” işinde %1$@ geçtin."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

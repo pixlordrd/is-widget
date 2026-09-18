@@ -1,0 +1,78 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CFBundleDisplayName" : {
+      "comment" : "Bundle display name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "IDIN"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "IDIN"
+          }
+        }
+      }
+    },
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "IDIN"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "IDIN"
+          }
+        }
+      }
+    },
+    "NSCalendarsFullAccessUsageDescription" : {
+      "comment" : "Privacy - Calendars Full Access Usage Description",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "IDIN writes each finished task to the calendar you choose, as a real event."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "IDIN, bitirdiğin işleri seçtiğin takvime gerçek bir etkinlik olarak yazar."
+          }
+        }
+      }
+    },
+    "NSHumanReadableCopyright" : {
+      "comment" : "Copyright (human-readable)",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "© 2026 PIXLORD"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "© 2026 PIXLORD"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

@@ -1,0 +1,284 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "— %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "— %@"
+          }
+        }
+      }
+    },
+    "“%@”" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "“%@”"
+          }
+        }
+      }
+    },
+    "%@, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@"
+          }
+        }
+      }
+    },
+    "A calendar write that fails no longer loses the session." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Takvime yazma başarısız olsa bile oturum artık kaybolmuyor."
+          }
+        }
+      }
+    },
+    "A reminder asks whether to keep going once a session runs long." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bir oturum uzadığında hatırlatıcı devam etmek isteyip istemediğini sorar."
+          }
+        }
+      }
+    },
+    "About" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hakkında"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bitir"
+          }
+        }
+      }
+    },
+    "Done — save “%@” to the calendar" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bitir — “%@” işini takvime kaydet"
+          }
+        }
+      }
+    },
+    "Finished sessions land in the calendar they were started with." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bitirilen oturumlar, başlatıldıkları takvime yazılır."
+          }
+        }
+      }
+    },
+    "I Do It Now" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "I Do It Now"
+          }
+        }
+      }
+    },
+    "I use IDIN (I Do It Now) to record what I actually worked on instead of what I planned." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Planladığım değil, gerçekten üzerinde çalıştığım işleri kaydetmek için IDIN (I Do It Now) kullanıyorum."
+          }
+        }
+      }
+    },
+    "Keep Going" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Devam Et"
+          }
+        }
+      }
+    },
+    "Last: %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Son: %@"
+          }
+        }
+      }
+    },
+    "Light, dark or system appearance on both platforms." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "İki platformda da açık, koyu veya sistem görünümü."
+          }
+        }
+      }
+    },
+    "New in %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ sürümünde yeni"
+          }
+        }
+      }
+    },
+    "Not what you planned. What you did." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Planladığın değil, yaptığın."
+          }
+        }
+      }
+    },
+    "Save & Finish" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kaydet ve Bitir"
+          }
+        }
+      }
+    },
+    "Saved to calendar!" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Takvime kaydedildi!"
+          }
+        }
+      }
+    },
+    "Share %@ with a friend" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ uygulamasını bir arkadaşınla paylaş"
+          }
+        }
+      }
+    },
+    "Start" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Başlat"
+          }
+        }
+      }
+    },
+    "Start on one device, finish on another — the running task follows you." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bir aygıtta başlat, diğerinde bitir — çalışan iş seninle birlikte gelir."
+          }
+        }
+      }
+    },
+    "Started at %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Başlangıç: %@"
+          }
+        }
+      }
+    },
+    "Still on it?" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hâlâ bu işte misin?"
+          }
+        }
+      }
+    },
+    "Version %@ (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Version %1$@ (%2$@)"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sürüm %1$@ (%2$@)"
+          }
+        }
+      }
+    },
+    "What are you working on?" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ne üzerinde çalışıyorsun?"
+          }
+        }
+      }
+    },
+    "You've passed %@ on “%@”. Keep going, or save it to your calendar now?" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You've passed %1$@ on “%2$@”. Keep going, or save it to your calendar now?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "“%2$@” işinde %1$@ geçtin. Devam mı, yoksa şimdi takvime kaydetmek mi?"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

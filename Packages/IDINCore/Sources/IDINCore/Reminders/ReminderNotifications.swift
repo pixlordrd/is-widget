@@ -13,12 +13,12 @@ public enum ReminderNotifications {
     public static func registerCategory() {
         let keepGoing = UNNotificationAction(
             identifier: continueActionID,
-            title: "Keep Going",
+            title: String(localized: "Keep Going", bundle: Bundle.module),
             options: []
         )
         let finish = UNNotificationAction(
             identifier: finishActionID,
-            title: "Save & Finish",
+            title: String(localized: "Save & Finish", bundle: Bundle.module),
             options: [.authenticationRequired]
         )
         let category = UNNotificationCategory(
@@ -49,8 +49,11 @@ public enum ReminderNotifications {
         guard settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional else { return }
 
         let content = UNMutableNotificationContent()
-        content.title = "Still on it?"
-        content.body = "You've passed \(thresholdText) on “\(task.text)”. Keep going, or save it to your calendar now?"
+        content.title = String(localized: "Still on it?", bundle: Bundle.module)
+        content.body = String(
+            localized: "You've passed \(thresholdText) on “\(task.text)”. Keep going, or save it to your calendar now?",
+            bundle: Bundle.module
+        )
         content.sound = .default
         content.categoryIdentifier = categoryID
         // `.timeSensitive` would need the Time Sensitive Notifications entitlement,

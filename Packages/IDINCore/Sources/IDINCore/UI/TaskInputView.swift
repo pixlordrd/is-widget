@@ -35,28 +35,40 @@ public struct TaskInputView: View {
                     text = lastTaskText
                     onReuseLast(lastTaskText)
                 } label: {
-                    Label("Last: \(lastTaskText)", systemImage: "clock.arrow.circlepath")
-                        .font(.system(size: compact ? 10 : 12))
-                        .lineLimit(1)
+                    Label {
+                        Text("Last: \(lastTaskText)", bundle: Bundle.module)
+                            .lineLimit(1)
+                    } icon: {
+                        Image(systemName: "clock.arrow.circlepath")
+                    }
+                    .font(.system(size: compact ? 10 : 12))
                 }
                 .buttonStyle(.plain)
                 .foregroundStyle(.secondary)
                 .frame(maxWidth: .infinity, alignment: compact ? .leading : .center)
             }
 
-            TextField("What are you working on?", text: $text, axis: .vertical)
-                .textFieldStyle(.plain)
-                .font(.system(size: compact ? 14 : 17))
-                .multilineTextAlignment(compact ? .leading : .center)
-                .lineLimit(2...4)
-                .focused($isFocused)
-                .onSubmit(start)
+            TextField(
+                String(localized: "What are you working on?", bundle: Bundle.module),
+                text: $text,
+                axis: .vertical
+            )
+            .textFieldStyle(.plain)
+            .font(.system(size: compact ? 14 : 17))
+            .multilineTextAlignment(compact ? .leading : .center)
+            .lineLimit(2...4)
+            .focused($isFocused)
+            .onSubmit(start)
 
             Button(action: start) {
-                Label("Start", systemImage: "play.fill")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, compact ? 2 : 12)
+                Label {
+                    Text("Start", bundle: Bundle.module)
+                } icon: {
+                    Image(systemName: "play.fill")
+                }
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, compact ? 2 : 12)
             }
             .buttonStyle(.borderedProminent)
             .disabled(trimmed.isEmpty)

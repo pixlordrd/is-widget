@@ -1,0 +1,242 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "·" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "·"
+          }
+        }
+      }
+    },
+    "About %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ Hakkında"
+          }
+        }
+      }
+    },
+    "Appearance" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Görünüm"
+          }
+        }
+      }
+    },
+    "Calendar" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Takvim"
+          }
+        }
+      }
+    },
+    "Calendar access required" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Takvim erişimi gerekli"
+          }
+        }
+      }
+    },
+    "Could not save" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kaydedilemedi"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bitti"
+          }
+        }
+      }
+    },
+    "IDIN asks whether to keep going or save the session once it runs longer than this. The alert uses the system notification sound." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bir oturum bu süreyi aştığında IDIN devam etmek mi yoksa kaydetmek mi istediğini sorar. Uyarı, sistem bildirim sesini kullanır."
+          }
+        }
+      }
+    },
+    "IDIN writes finished tasks to your calendar. Grant access in Settings › Privacy & Security › Calendars." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "IDIN, bitirdiğin işleri takvimine yazar. Erişimi Ayarlar › Gizlilik ve Güvenlik › Takvimler bölümünden ver."
+          }
+        }
+      }
+    },
+    "Keep Going" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Devam Et"
+          }
+        }
+      }
+    },
+    "Loading calendars…" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Takvimler yükleniyor…"
+          }
+        }
+      }
+    },
+    "Long session reminder" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Uzun oturum hatırlatıcısı"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tamam"
+          }
+        }
+      }
+    },
+    "Open Settings" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ayarları Aç"
+          }
+        }
+      }
+    },
+    "Remind me after" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hatırlatma süresi"
+          }
+        }
+      }
+    },
+    "Reminder" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hatırlatıcı"
+          }
+        }
+      }
+    },
+    "Save & Finish" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kaydet ve Bitir"
+          }
+        }
+      }
+    },
+    "Save events to" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Kaydedilecek takvim"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ayarlar"
+          }
+        }
+      }
+    },
+    "Share %@ with a friend" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ uygulamasını bir arkadaşınla paylaş"
+          }
+        }
+      }
+    },
+    "Still on it?" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hâlâ bu işte misin?"
+          }
+        }
+      }
+    },
+    "Theme" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tema"
+          }
+        }
+      }
+    },
+    "You've passed %@ on “%@”." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You've passed %1$@ on “%2$@”."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "“%2$@” işinde %1$@ geçtin."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

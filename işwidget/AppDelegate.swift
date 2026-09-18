@@ -61,16 +61,17 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     private func makeQuitAlert() -> NSAlert {
         let alert = NSAlert()
-        alert.addButton(withTitle: "OK")
-        alert.addButton(withTitle: "Cancel")
+        alert.addButton(withTitle: String(localized: "OK"))
+        alert.addButton(withTitle: String(localized: "Cancel"))
+        alert.messageText = String(localized: "Quit \(Brand.name)?")
 
         if let task = SyncManager.shared.runningTask {
-            alert.messageText = "Quit \(Brand.name)?"
-            alert.informativeText = "“\(task.text)” is still running — quitting now will not write this session to your calendar."
+            alert.informativeText = String(
+                localized: "“\(task.text)” is still running — quitting now will not write this session to your calendar."
+            )
             alert.alertStyle = .warning
         } else {
-            alert.messageText = "Quit \(Brand.name)?"
-            alert.informativeText = "Are you sure you want to quit?"
+            alert.informativeText = String(localized: "Are you sure you want to quit?")
             alert.alertStyle = .informational
         }
 

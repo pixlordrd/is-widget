@@ -8,14 +8,7 @@ public final class ReminderPreferences {
     public static let shared = ReminderPreferences()
 
     /// Thresholds offered in Settings, in minutes.
-    /// Debug builds also offer 1 minute so the reminder flow can be tested quickly.
-    public static let minuteChoices: [Int] = {
-        #if DEBUG
-        [1, 30, 45, 60, 90, 120]
-        #else
-        [30, 45, 60, 90, 120]
-        #endif
-    }()
+    public static let minuteChoices = [30, 45, 60, 90, 120]
 
     public static let defaultMinutes = 60
 

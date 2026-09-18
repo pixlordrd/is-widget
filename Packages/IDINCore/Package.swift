@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "IDINCore",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v17),
         .macOS(.v14)
@@ -11,7 +12,10 @@ let package = Package(
         .library(name: "IDINCore", targets: ["IDINCore"])
     ],
     targets: [
-        .target(name: "IDINCore")
+        .target(
+            name: "IDINCore",
+            resources: [.process("Localizable.xcstrings")]
+        )
     ],
     swiftLanguageModes: [.v6]
 )

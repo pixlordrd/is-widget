@@ -62,32 +62,45 @@ public struct TimerView: View {
                     .monospacedDigit()
                     .foregroundStyle(.red)
             }
-            Text("Started at \(task.startTime.formatted(date: .omitted, time: .shortened))")
-                .font(.system(size: compact ? 10 : 13))
-                .foregroundStyle(.tertiary)
+            Text(
+                "Started at \(task.startTime.formatted(date: .omitted, time: .shortened))",
+                bundle: Bundle.module
+            )
+            .font(.system(size: compact ? 10 : 13))
+            .foregroundStyle(.tertiary)
         }
     }
 
     @ViewBuilder
     private var action: some View {
         if isSaved {
-            Label("Saved to calendar!", systemImage: "checkmark.circle.fill")
-                .font(compact ? .caption : .headline)
-                .foregroundStyle(.green)
-                .padding(.vertical, compact ? 7 : 16)
-                .frame(maxWidth: .infinity)
-                .background(.green.opacity(0.12), in: RoundedRectangle(cornerRadius: compact ? 8 : 16))
+            Label {
+                Text("Saved to calendar!", bundle: Bundle.module)
+            } icon: {
+                Image(systemName: "checkmark.circle.fill")
+            }
+            .font(compact ? .caption : .headline)
+            .foregroundStyle(.green)
+            .padding(.vertical, compact ? 7 : 16)
+            .frame(maxWidth: .infinity)
+            .background(.green.opacity(0.12), in: RoundedRectangle(cornerRadius: compact ? 8 : 16))
         } else {
             Button(action: onDone) {
-                Label("Done", systemImage: "stop.fill")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, compact ? 2 : 14)
+                Label {
+                    Text("Done", bundle: Bundle.module)
+                } icon: {
+                    Image(systemName: "stop.fill")
+                }
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, compact ? 2 : 14)
             }
             .buttonStyle(.borderedProminent)
             .tint(.red)
             .keyboardShortcut(.return, modifiers: .command)
-            .accessibilityLabel("Done — save “\(task.text)” to the calendar")
+            .accessibilityLabel(
+                Text("Done — save “\(task.text)” to the calendar", bundle: Bundle.module)
+            )
         }
     }
 }
