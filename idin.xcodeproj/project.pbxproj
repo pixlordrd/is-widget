@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F5432DA305DAFA20092FCC4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5432D9305DAFA20092FCC4 /* WidgetKit.framework */; };
+		0F5432DC305DAFA20092FCC4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5432DB305DAFA20092FCC4 /* SwiftUI.framework */; };
+		0F5432E7305DAFA20092FCC4 /* IDINLiveActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0F5432D8305DAFA20092FCC4 /* IDINLiveActivityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0F5432EE305DB1950092FCC4 /* IDINCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0F5432ED305DB1950092FCC4 /* IDINCore */; };
 		0FFB1D7E305B1CC7008E9A86 /* IDINCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0FFB1D7D305B1CC7008E9A86 /* IDINCore */; };
 		0FFB1D81305B1CDC008E9A86 /* IDINCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0FFB1D80305B1CDC008E9A86 /* IDINCore */; };
 		0FFB1D84305B1F60008E9A86 /* IDINCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0FFB1D83305B1F60008E9A86 /* IDINCore */; };
@@ -27,6 +31,13 @@
 			remoteGlobalIDString = 0F33BCCE30398D8900D2C9C1;
 			remoteInfo = "işwidget iOS";
 		};
+		0F5432E5305DAFA20092FCC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FB15D7C30388813004D1D98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F5432D7305DAFA20092FCC4;
+			remoteInfo = IDINLiveActivityExtension;
+		};
 		0FB15D9230388814004D1D98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FB15D7C30388813004D1D98 /* Project object */;
@@ -43,14 +54,41 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0F5432EC305DAFA20092FCC4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0F5432E7305DAFA20092FCC4 /* IDINLiveActivityExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0F33BCCF30398D8900D2C9C1 /* IDIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F33BCDB30398D8A00D2C9C1 /* işwidget iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "işwidget iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F33BCE530398D8A00D2C9C1 /* işwidget iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "işwidget iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F5432D8305DAFA20092FCC4 /* IDINLiveActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IDINLiveActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F5432D9305DAFA20092FCC4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = /System/Library/Frameworks/WidgetKit.framework; sourceTree = "<absolute>"; };
+		0F5432DB305DAFA20092FCC4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = /System/Library/Frameworks/SwiftUI.framework; sourceTree = "<absolute>"; };
 		0FB15D8430388813004D1D98 /* IDIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB15D9130388814004D1D98 /* işwidgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "işwidgetTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB15D9B30388814004D1D98 /* işwidgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "işwidgetUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0F5432E8305DAFA20092FCC4 /* Exceptions for "IDINLiveActivity" folder in "IDINLiveActivityExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0F5432D7305DAFA20092FCC4 /* IDINLiveActivityExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0F33BCD030398D8900D2C9C1 /* işwidget iOS */ = {
@@ -66,6 +104,14 @@
 		0F33BCE830398D8A00D2C9C1 /* işwidget iOSUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "işwidget iOSUITests";
+			sourceTree = "<group>";
+		};
+		0F5432DD305DAFA20092FCC4 /* IDINLiveActivity */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0F5432E8305DAFA20092FCC4 /* Exceptions for "IDINLiveActivity" folder in "IDINLiveActivityExtension" target */,
+			);
+			path = IDINLiveActivity;
 			sourceTree = "<group>";
 		};
 		0FB15D8630388813004D1D98 /* işwidget */ = {
@@ -108,6 +154,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0F5432D5305DAFA20092FCC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F5432DC305DAFA20092FCC4 /* SwiftUI.framework in Frameworks */,
+				0F5432EE305DB1950092FCC4 /* IDINCore in Frameworks */,
+				0F5432DA305DAFA20092FCC4 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0FB15D8130388813004D1D98 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,6 +199,7 @@
 				0F33BCD030398D8900D2C9C1 /* işwidget iOS */,
 				0F33BCDE30398D8A00D2C9C1 /* işwidget iOSTests */,
 				0F33BCE830398D8A00D2C9C1 /* işwidget iOSUITests */,
+				0F5432DD305DAFA20092FCC4 /* IDINLiveActivity */,
 				0FB15D8530388813004D1D98 /* Products */,
 				0FFB1D68305B18A4008E9A86 /* Shared */,
 				0FFB1D82305B1E05008E9A86 /* Frameworks */,
@@ -158,6 +215,7 @@
 				0F33BCCF30398D8900D2C9C1 /* IDIN.app */,
 				0F33BCDB30398D8A00D2C9C1 /* işwidget iOSTests.xctest */,
 				0F33BCE530398D8A00D2C9C1 /* işwidget iOSUITests.xctest */,
+				0F5432D8305DAFA20092FCC4 /* IDINLiveActivityExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,6 +230,8 @@
 		0FFB1D82305B1E05008E9A86 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F5432D9305DAFA20092FCC4 /* WidgetKit.framework */,
+				0F5432DB305DAFA20092FCC4 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -186,10 +246,12 @@
 				0F33BCCB30398D8900D2C9C1 /* Sources */,
 				0F33BCCC30398D8900D2C9C1 /* Frameworks */,
 				0F33BCCD30398D8900D2C9C1 /* Resources */,
+				0F5432EC305DAFA20092FCC4 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0F5432E6305DAFA20092FCC4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				0F33BCD030398D8900D2C9C1 /* işwidget iOS */,
@@ -247,6 +309,29 @@
 			productName = "işwidget iOSUITests";
 			productReference = 0F33BCE530398D8A00D2C9C1 /* işwidget iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		0F5432D7305DAFA20092FCC4 /* IDINLiveActivityExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F5432E9305DAFA20092FCC4 /* Build configuration list for PBXNativeTarget "IDINLiveActivityExtension" */;
+			buildPhases = (
+				0F5432D4305DAFA20092FCC4 /* Sources */,
+				0F5432D5305DAFA20092FCC4 /* Frameworks */,
+				0F5432D6305DAFA20092FCC4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0F5432DD305DAFA20092FCC4 /* IDINLiveActivity */,
+			);
+			name = IDINLiveActivityExtension;
+			packageProductDependencies = (
+				0F5432ED305DB1950092FCC4 /* IDINCore */,
+			);
+			productName = IDINLiveActivityExtension;
+			productReference = 0F5432D8305DAFA20092FCC4 /* IDINLiveActivityExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		0FB15D8330388813004D1D98 /* işwidget */ = {
 			isa = PBXNativeTarget;
@@ -325,7 +410,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2660;
+				LastSwiftUpdateCheck = 2700;
 				LastUpgradeCheck = 2660;
 				TargetAttributes = {
 					0F33BCCE30398D8900D2C9C1 = {
@@ -338,6 +423,9 @@
 					0F33BCE430398D8A00D2C9C1 = {
 						CreatedOnToolsVersion = 26.6;
 						TestTargetID = 0F33BCCE30398D8900D2C9C1;
+					};
+					0F5432D7305DAFA20092FCC4 = {
+						CreatedOnToolsVersion = 27.0;
 					};
 					0FB15D8330388813004D1D98 = {
 						CreatedOnToolsVersion = 26.6;
@@ -376,6 +464,7 @@
 				0F33BCCE30398D8900D2C9C1 /* işwidget iOS */,
 				0F33BCDA30398D8A00D2C9C1 /* işwidget iOSTests */,
 				0F33BCE430398D8A00D2C9C1 /* işwidget iOSUITests */,
+				0F5432D7305DAFA20092FCC4 /* IDINLiveActivityExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -396,6 +485,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0F33BCE330398D8A00D2C9C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0F5432D6305DAFA20092FCC4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -447,6 +543,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0F5432D4305DAFA20092FCC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0FB15D8030388813004D1D98 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -481,6 +584,11 @@
 			target = 0F33BCCE30398D8900D2C9C1 /* işwidget iOS */;
 			targetProxy = 0F33BCE630398D8A00D2C9C1 /* PBXContainerItemProxy */;
 		};
+		0F5432E6305DAFA20092FCC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0F5432D7305DAFA20092FCC4 /* IDINLiveActivityExtension */;
+			targetProxy = 0F5432E5305DAFA20092FCC4 /* PBXContainerItemProxy */;
+		};
 		0FB15D9330388814004D1D98 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0FB15D8330388813004D1D98 /* işwidget */;
@@ -501,7 +609,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "işwidget iOS/işwidget iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6QN5K328LP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -510,6 +618,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN writes each finished task to the calendar you choose, as a real event.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 PIXLORD";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -545,7 +654,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "işwidget iOS/işwidget iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6QN5K328LP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -554,6 +663,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "IDIN writes each finished task to the calendar you choose, as a real event.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 PIXLORD";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -672,6 +782,88 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "işwidget iOS";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0F5432EA305DAFA20092FCC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = 6QN5K328LP;
+				ENABLE_APP_SANDBOX = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IDINLiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IDINLiveActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 2.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "PIXLORD.idin-iOS.IDINLiveActivity";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Debug;
+		};
+		0F5432EB305DAFA20092FCC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = 6QN5K328LP;
+				ENABLE_APP_SANDBOX = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IDINLiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IDINLiveActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 2.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "PIXLORD.idin-iOS.IDINLiveActivity";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 27.0;
 			};
 			name = Release;
 		};
@@ -805,7 +997,7 @@
 				CODE_SIGN_ENTITLEMENTS = "işwidget/işwidget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6QN5K328LP;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -859,7 +1051,7 @@
 				CODE_SIGN_ENTITLEMENTS = "işwidget/işwidget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6QN5K328LP;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1013,6 +1205,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		0F5432E9305DAFA20092FCC4 /* Build configuration list for PBXNativeTarget "IDINLiveActivityExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F5432EA305DAFA20092FCC4 /* Debug */,
+				0F5432EB305DAFA20092FCC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0FB15D7F30388813004D1D98 /* Build configuration list for PBXProject "idin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1059,6 +1260,11 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0F5432ED305DB1950092FCC4 /* IDINCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FFB1D7F305B1CDC008E9A86 /* XCLocalSwiftPackageReference "Packages/IDINCore" */;
+			productName = IDINCore;
+		};
 		0FFB1D7D305B1CC7008E9A86 /* IDINCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = IDINCore;

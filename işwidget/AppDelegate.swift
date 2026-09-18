@@ -7,6 +7,7 @@ import IDINCore
 final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private var isAsking = false
     private var quitConfirmed = false
+    private let menuBar = MenuBarController()
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         NotificationCenter.default.addObserver(
@@ -15,9 +16,41 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             name: NSWindow.didBecomeKeyNotification,
             object: nil
         )
+
+        menuBar.onToggleWindow = { [weak self] in self?.toggleWidgetWindow() }
+        menuBar.install()
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
+
+    /// Clicking the Dock icon brings the widget back when it's parked in the menu bar.
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        if !flag { showWidgetWindow() }
+        return true
+    }
+
+    // MARK: Menu bar
+
+    private var widgetWindow: NSWindow? {
+        NSApp.windows.first { $0.identifier == NSWindow.widgetIdentifier }
+    }
+
+    private func toggleWidgetWindow() {
+        guard let window = widgetWindow else { return }
+
+        if window.isVisible, !window.isMiniaturized {
+            window.orderOut(nil)
+        } else {
+            showWidgetWindow()
+        }
+    }
+
+    private func showWidgetWindow() {
+        guard let window = widgetWindow else { return }
+        NSApp.activate()
+        window.deminiaturize(nil)
+        window.makeKeyAndOrderFront(nil)
+    }
 
     // MARK: Window delegate
 
@@ -44,6 +77,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             }
         }
         return false
+    }
+
+    /// Minimizing parks IDIN in the menu bar rather than the Dock — for a window that
+    /// floats over everything, the menu bar is where you look for it.
+    func windowDidMiniaturize(_ notification: Notification) {
+        guard let window = notification.object as? NSWindow,
+              window.identifier == NSWindow.widgetIdentifier else { return }
+
+        window.deminiaturize(nil)
+        window.orderOut(nil)
     }
 
     // MARK: Termination

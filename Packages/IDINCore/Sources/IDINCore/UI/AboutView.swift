@@ -34,7 +34,11 @@ public struct AboutView: View {
                 bundle: .atURL(Bundle.module.bundleURL)
             ),
             LocalizedStringResource(
-                "A calendar write that fails no longer loses the session.",
+                "A live timer in the Dynamic Island and on the Lock Screen, with a Done button.",
+                bundle: .atURL(Bundle.module.bundleURL)
+            ),
+            LocalizedStringResource(
+                "On the Mac, the timer lives in the menu bar and the window tucks away when you minimize it.",
                 bundle: .atURL(Bundle.module.bundleURL)
             ),
             LocalizedStringResource(
@@ -42,7 +46,7 @@ public struct AboutView: View {
                 bundle: .atURL(Bundle.module.bundleURL)
             ),
             LocalizedStringResource(
-                "Light, dark or system appearance on both platforms.",
+                "Turkish and English, following your device language.",
                 bundle: .atURL(Bundle.module.bundleURL)
             )
         ]

@@ -38,11 +38,22 @@
       }
     },
     "A calendar write that fails no longer loses the session." : {
+      "extractionState" : "stale",
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Takvime yazma başarısız olsa bile oturum artık kaybolmuyor."
+          }
+        }
+      }
+    },
+    "A live timer in the Dynamic Island and on the Lock Screen, with a Done button." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dinamik Ada'da ve kilit ekranında canlı kronometre, üstelik Bitir düğmesiyle."
           }
         }
       }
@@ -138,6 +149,7 @@
       }
     },
     "Light, dark or system appearance on both platforms." : {
+      "extractionState" : "stale",
       "localizations" : {
         "tr" : {
           "stringUnit" : {
@@ -167,6 +179,16 @@
         }
       }
     },
+    "On the Mac, the timer lives in the menu bar and the window tucks away when you minimize it." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mac'te kronometre menü çubuğunda durur; pencereyi küçültünce oraya çekilir."
+          }
+        }
+      }
+    },
     "Save & Finish" : {
       "localizations" : {
         "tr" : {
@@ -183,6 +205,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Takvime kaydedildi!"
+          }
+        }
+      }
+    },
+    "Saves the running task to your calendar and stops the timer." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Çalışan işi takvimine kaydeder ve kronometreyi durdurur."
           }
         }
       }
@@ -233,6 +265,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Hâlâ bu işte misin?"
+          }
+        }
+      }
+    },
+    "Turkish and English, following your device language." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cihazının diline göre Türkçe veya İngilizce."
           }
         }
       }

@@ -19,6 +19,8 @@ struct ContentView: View {
         AppTheme(rawValue: themeName) ?? .system
     }
 
+    @Environment(\.scenePhase) private var scenePhase
+
     private let sync = SyncManager.shared
     private let reminders = ReminderPreferences.shared
 
@@ -55,6 +57,14 @@ struct ContentView: View {
         }
         .onChange(of: sync.runningTask) { _, task in
             Task { await refreshReminder(for: task) }
+        }
+        .onChange(of: scenePhase) { _, phase in
+            // A session started on the Mac can't raise a Live Activity while this app
+            // is in the background — ActivityKit only allows that from the foreground.
+            // Catch up as soon as we're back on screen.
+            guard phase == .active else { return }
+            sync.loadTask()
+            Task { await refreshReminder(for: sync.runningTask) }
         }
         .sheet(isPresented: $showSettings) {
             SettingsView(calendarManager: calendarManager, selectedCalendarID: $selectedCalendarID)
@@ -186,10 +196,11 @@ struct ContentView: View {
         taskText = ""
     }
 
-    /// Keeps the in-app prompt and the background notification in step with the
-    /// running task and the current reminder settings.
+    /// Keeps the in-app prompt, the background notification and the Live Activity in
+    /// step with the running task and the current reminder settings.
     private func refreshReminder(for task: RunningTask?) async {
         monitor.update(for: task)
+        await LiveActivityController.sync(with: task)
 
         guard reminders.isEnabled, let task else {
             ReminderNotifications.cancel()

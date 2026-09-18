@@ -197,6 +197,16 @@
         }
       }
     },
+    "Quit %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Çık"
+          }
+        }
+      }
+    },
     "Quit %@?" : {
       "localizations" : {
         "tr" : {
@@ -243,6 +253,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Ayarlar"
+          }
+        }
+      }
+    },
+    "Show %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Göster"
           }
         }
       }

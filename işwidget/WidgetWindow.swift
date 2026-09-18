@@ -37,7 +37,9 @@ extension NSWindow {
         titleVisibility = .hidden
         styleMask.insert(.fullSizeContentView)
         styleMask.remove(.resizable)
-        standardWindowButton(.miniaturizeButton)?.isHidden = true
+        // Minimize stays available — it parks the widget in the menu bar.
+        styleMask.insert(.miniaturizable)
+        standardWindowButton(.miniaturizeButton)?.isHidden = false
         standardWindowButton(.zoomButton)?.isHidden = true
     }
 }
